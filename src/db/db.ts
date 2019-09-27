@@ -1,13 +1,12 @@
 import { MongoClient, MongoClientOptions, Db } from 'mongodb'
-import process from '../types/env'
 
 class DB {
 
     private static options: MongoClientOptions;
     private static url: string;
-    protected static db: Db | undefined;
+    public static db: Db | undefined;
 
-    constructor(url:string, options:object) {
+    constructor(url:string, options?:object) {
         DB.options = {useNewUrlParser: true, useUnifiedTopology: true, ...options};
         DB.url = url;
     }

@@ -1,5 +1,4 @@
 import 'dotenv/config';
-// import process from '../types/env'
 import express from 'express'
 import { Application } from 'express'
 import bodyParser from 'body-parser'
@@ -17,9 +16,9 @@ app.use(express.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
 
-const main = () => {
+const main = async () => {
+    await db.connect();
     app.listen(port);
-    db.connect();
     return console.info(`🚀  Server listening on ${localhost}:${port}`);
 }
 
